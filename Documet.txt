@@ -1,0 +1,93 @@
+Document the API
+	Here is the documentation for the API endpoints:
+
+1. GET /tasks
+    Description: Retrieve a list of all tasks.
+    Response:
+    Status: 200
+    Body:
+    json
+    Copy code
+    [
+    {
+     "id": 1,
+        "title": "Sample Task",
+     "description": "This is a sample task"
+     }
+    ]
+
+
+
+
+2. GET /tasks/:id
+    Description: Retrieve a specific task by ID.
+    Parameters:
+    id (integer): The ID of the task to retrieve.
+    Response:
+    Status: 200
+    Body:
+    json
+    Copy code
+    {
+    "id": 1,
+    "title": "Sample Task",
+    "description": "This is a sample task"
+    }
+    Status: 404 if the task is not found.
+
+
+3. POST /tasks
+    Description: Create a new task.
+    Body:
+    json
+    Copy code
+    {
+    "title": "New Task",
+    "description": "Description of the new task"
+    }
+    Response:
+    Status: 201
+    Body:
+    json
+    Copy code
+    {
+    "id": 2,
+    "title": "New Task",
+    "description": "Description of the new task"
+    }
+    Status: 400 if title or description is missing.
+
+
+4. PUT /tasks/:id
+    Description: Update an existing task by ID.
+    Parameters:
+    id (integer): The ID of the task to update.
+    Body:
+    json
+    Copy code
+    {
+    "title": "Updated Task",
+     "description": "Updated description"
+    }
+    Response:
+    Status: 200
+    Body:
+    json
+    Copy code
+    {
+    "id": 1,
+    "title": "Updated Task",
+    "description": "Updated description"
+    }
+    Status: 404 if the task is not found.
+    Status: 400 if title or description is missing.
+
+
+
+5. DELETE /tasks/:id
+    Description: Delete a task by ID.
+    Parameters:
+    id (integer): The ID of the task to delete.
+    Response:
+    Status: 204
+    Status: 404 if the task is not found.
